@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+<body>
+    <div class="levels">
+        <button id="btn1" onclick="game()">Novice</button>
+        <button id="btn2" onclick="game()">Intermediate</button>
+        <button id="btn3" onclick="game()">Hard</button>
+    </div>
+
+    <div class="container">
+        <div class="menu">
+            <h1>Menu</h1>
+            <p>Board Size</p>
+            <input type="number" name="Board Size" id="boardSize">
+            <p>Number of Apples on the Screen</p>
+            <input type="number" name="Number of Apples on the Screen" id="apple">
+            <p>Initial Length of the Snake</p>
+            <input type="number" name="Initial Length of the Snake" id="length">
+            <p>Snake's Speed</p>
+            <input type="number" name="Snake's Speed" id="speed">
+        </div>
+
+        <canvas width="500" height="500" id="mainBoard"></canvas>
+        <div class="scores">
+            <h1>Highest Score</h1> <div id="highestScore"></div>
+            <h1>Total Score</h1> <div id="totalScore"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

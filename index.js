@@ -32,6 +32,9 @@ let snakeY;
 let apple = [];
 let appleNum = 1;
 
+let storage = localStorage;
+let key = highestScore;
+
 class Snake {
     constructor(snakeLength, x, y) {
         this.snakeArray = [];
@@ -141,24 +144,27 @@ function game() {
                 snake.eat(k);
                 score += 10;
                 totalScore.textContent = score;
+                storage.setItem(key, score);
             }
         }
     }
-
+    
     if(snake.snakeArray[snake.snakeArray.length - 1].x === canvas.width - 10 || snake.snakeArray[snake.snakeArray.length - 1].x === 0 || snake.snakeArray[snake.snakeArray.length - 1].y === canvas.height - 10 || snake.snakeArray[snake.snakeArray.length - 1].y === 0){
         snake.gameOver();
+        highestScore.textContent = score;
     }
-
+    
     if( snake.snakeArray.length > 4 ){       
         for(j = 0; j < snake.snakeArray.length - 1; j++){
             if( snake.snakeArray[snake.snakeArray.length - 1].x === snake.snakeArray[j].x 
                 && snake.snakeArray[snake.snakeArray.length - 1].y === snake.snakeArray[j].y){
                 snake.gameOver();
+                highestScore.textContent = score;
             }
         }
     }
 }
-
+    
 let myInterval = setInterval(game, 100);
 
 // function newGame() {
